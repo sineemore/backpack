@@ -44,5 +44,4 @@ cat <<EOF
 exec /bin/sh -i
 EOF
 )"
-#printf "\033]2;%s\007" "$1"
 exec ssh -t "$1" "$INIT"
