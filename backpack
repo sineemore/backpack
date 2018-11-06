@@ -2,7 +2,6 @@
 if [ ! -t 1 -o ! $# -eq 1 -o ! -f ~/.backpack -a -z "$BACKPACK" ]; then
 	exec ssh "$@"
 fi
-self="$(realpath "$0")"
 encode() {
 	base64 | tr -d "\n"
 }
@@ -10,7 +9,7 @@ if [ -z "$BACKPACK" ]; then
 	RC="$(encode < ~/.backpack)"
 	FUNCTION="$(encode <<EOF
 backpack() (
-	$(cat "$self")
+	$(cat "$(realpath "$0")")
 )
 EOF
 )"
