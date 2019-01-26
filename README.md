@@ -2,14 +2,13 @@
 
 backpack is a small wrapper around ssh.
 
-It transfers a file simular to .bashrc to remote host, sources it and continues with normal ssh session.
+It transfers contents of a local file ~/.backpack and itself to remote host, sources it and continues with normal ssh session.
 
-Some highlights:
 
 * works best as `alias ssh=backpack`
 * won't create any files on remote hosts (even temporary)
-* it is self-replicating and can be called again directly from remote host.
 * tries to fallback to normal ssh when remote shell is not bash
+* **self-replication** allows you to use backpack again directly from remote host, in this case backpack will keep original local file as you go deaper from host to host.
 
 Example of ~/.backpack file:
 	
@@ -33,4 +32,4 @@ Example of ~/.backpack file:
 	# I use st terminal, but probably there is no st.info
 	TERM=xterm-256color
 
-Also check simular project [sshrc](https://github.com/Russell91/sshrc).
+Also check similar project [sshrc](https://github.com/Russell91/sshrc).
